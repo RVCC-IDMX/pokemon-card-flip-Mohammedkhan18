@@ -8,7 +8,7 @@ To run the project locally, clone the repository and open the folder in your cod
 
 # Extensions Implemented
 
-None but I did improve the responsiveness by a bit. 
+None!
 
 
 # Challenges Completed
