@@ -15,7 +15,9 @@ None but I did improve the responsiveness by a bit.
 All of them
 
 # Challenges Faced
-None!
+Some sprites were way too big and broke the layout. I fixed this by adding a .pokemon-img class and styling it with max-width, object-fit, and auto height. Apart from that, I didn't face any challenges. 
+
+
 
 ## Features
 
