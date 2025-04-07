@@ -200,42 +200,43 @@ function assignPokemonToCard(card, pokemon) {
   //    c. Pokemon types (div with type badges)
   //    d. Pokemon stats (height, weight, abilities count)
 
-  if (!card || !pokemon) {
-    return;
-  }
+  if (!card || !pokemon) return;
 
   card.dataset.pokemon = JSON.stringify(pokemon);
+
   const cardBack = card.querySelector('.card-back');
   cardBack.innerHTML = '';
 
   const img = document.createElement('img');
-  img.src = pokemon.sprite;
-  img.alt = pokemon.name;
+img.src = pokemon.sprite;
+img.alt = pokemon.name;
+img.className = 'pokemon-img';
 
-  const nameEl = document.createElement('h2');
-  nameEl.textContent = pokemon.name;
+  const name = document.createElement('h2');
+  name.textContent = pokemon.name;
 
-  const typesDiv = document.createElement('div');
-  typesDiv.className = 'types';
+  const types = document.createElement('div');
+  types.className = 'pokemon-types';
   pokemon.types.forEach(type => {
-    const typeSpan = document.createElement('span');
-    typeSpan.className = `type-badge type-${type}`;
-    typeSpan.textContent = type;
-    typesDiv.appendChild(typeSpan);
+    const typeBadge = document.createElement('span');
+    typeBadge.className = `type-badge ${type}`;
+    typeBadge.textContent = type;
+    types.appendChild(typeBadge);
   });
 
-  const statsDiv = document.createElement('div');
-  statsDiv.className = 'stats';
-  statsDiv.innerHTML = `
-    <p>Height: ${pokemon.height} m</p>
-    <p>Weight: ${pokemon.weight} kg</p>
-    <p>Abilities: ${pokemon.abilities.length}</p>
+  const stats = document.createElement('div');
+  stats.className = 'pokemon-stats';
+  stats.innerHTML = `
+    <p><strong>Height:</strong> ${pokemon.height} m</p>
+    <p><strong>Weight:</strong> ${pokemon.weight} kg</p>
+    <p><strong>Abilities:</strong> ${pokemon.abilities.length}</p>
   `;
 
   cardBack.appendChild(img);
-  cardBack.appendChild(nameEl);
-  cardBack.appendChild(typesDiv);
-  cardBack.appendChild(statsDiv);
+  cardBack.appendChild(name);
+  cardBack.appendChild(types);
+  cardBack.appendChild(stats);
+
 
   // DEBUGGING TIP: Verify the Pokemon data is correctly stored:
   // console.log(`Assigning Pokemon "${pokemon.name}" to card`);
